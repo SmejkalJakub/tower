@@ -9,7 +9,7 @@
       "type": "git",
       "url": "https://github.com/hardwario/hardwario-tower.git"
     },
-    "version": "version_number",
+    "version": "1.2.0",
     "frameworks": {
       "stm32cube": {
         "script": "builder/frameworks/stm32cube.py",
