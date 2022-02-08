@@ -1,0 +1,71 @@
+{
+    "name": "hardwario-tower",
+    "title": "HARDWARIO TOWER - Industrial IoT Kit",
+    "description": "IoT Kit TOWER by HARDWARIO is a versatile hardware platform focusing on the Internet of Things, wireless radio communication (Sub-GHz, NB-IoT, LoRaWAN, Sigfox), ultra-low power consumption, correct hardware design, and concise firmware SDK providing rock-solid stability for embedded applications. TOWER has a successful track record in the field of industrial IoT (IIoT) applications. The platform's main component is Core Module featuring microcontroller STM32L083CZ (ARM Cortex M0+) with 192 kB flash and 20 kB RAM, a Sub-GHz radio SPIRIT1, integrated security chip, digital temperature sensor, and a 3-axis MEMS accelerometer.",
+    "homepage": "https://www.hardwario.com",
+    "license": "Apache-2.0",
+    "keywords": ["IoT", "HARDWARIO", "Industrial", "Kit", "Simple", "Modular"],
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/hardwario/hardwario-tower.git"
+    },
+    "version": "version_number",
+    "frameworks": {
+      "stm32cube": {
+        "script": "builder/frameworks/stm32cube.py",
+        "description": "STM32Cube embedded software libraries, including: The HAL hardware abstraction layer, enabling portability between different STM32 devices via standardized API calls; The Low-Layer (LL) APIs, a light-weight, optimized, expert oriented set of APIs designed for both performance and runtime efficiency",
+        "homepage": "https://www.st.com/en/ecosystems/stm32cube.html",
+        "title": "STM32Cube"
+      }
+    },
+    "export": {
+      "exclude":[
+          ".*"
+      ]
+    },
+    "packages": {
+      "toolchain-gccarmnoneeabi": {
+        "type": "toolchain",
+        "owner": "platformio",
+        "version": ">=1.80000.0"
+      },
+      "framework-stm32cubel0": {
+        "type": "framework",
+        "optional": true,
+        "owner": "platformio",
+        "version": "~1.11.0"
+      },
+      "tool-stm32duino": {
+        "type": "uploader",
+        "optional": true,
+        "owner": "platformio",
+        "version": "~1.0.1"
+      },
+      "tool-openocd": {
+        "type": "uploader",
+        "optional": true,
+        "owner": "platformio",
+        "version": "~2.1000.0"
+      },
+      "tool-jlink": {
+        "type": "uploader",
+        "optional": true,
+        "owner": "platformio",
+        "version": "^1.63208.0"
+      },
+      "tool-dfuutil": {
+        "type": "uploader",
+        "optional": true,
+        "owner": "platformio",
+        "version": "~1.9.190708"
+      },
+      "tool-ldscripts-ststm32": {
+        "optional": true,
+        "owner": "platformio",
+        "version": "~0.1.0"
+      }
+    },
+    "pythonPackages": {
+        "bcf": ">=1.6.0"
+    }
+}

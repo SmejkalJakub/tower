@@ -1,0 +1,24 @@
+name: Release platform
+on:
+  release:
+    types: [published]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: linux
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Python dependencies and get GitHub Tag
+        run: | 
+          pip install -U platformio
+          echo "GITHUB_TAG=${GITHUB_REF#refs/*/v}" | tee -a $GITHUB_ENV
+      - name: Change version number
+        run: |
+          sed -r -i'' "s/\"version_number\"/\"${{ env.GITHUB_TAG }}\"/g" platform.json
+          cat platform.json
+      - name: Pack the platform package
+        run: pio package pack
+      - name: Publish the platform
+        env: 
+          PLATFORMIO_AUTH_TOKEN: ${{ secrets.PLATFORMIO_TOKEN }}
+        run: pio package publish --non-interactive
